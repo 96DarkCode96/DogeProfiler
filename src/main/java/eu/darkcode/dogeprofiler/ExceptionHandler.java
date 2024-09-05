@@ -17,7 +17,7 @@ final class ExceptionHandler implements Thread.UncaughtExceptionHandler {
     private final Thread.UncaughtExceptionHandler originalHandler;
     private final List<DogeProfiler> profilers = new ArrayList<>();
 
-    static void enable(@NotNull DogeProfiler dogeProfiler) {
+    static void setup(@NotNull DogeProfiler dogeProfiler) {
         Thread.UncaughtExceptionHandler currentHandler = Thread.getDefaultUncaughtExceptionHandler();
 
         ExceptionHandler dogeProfilerHandler;
@@ -38,7 +38,7 @@ final class ExceptionHandler implements Thread.UncaughtExceptionHandler {
         if (originalHandler != null) {
             originalHandler.uncaughtException(thread, throwable);
         } else {
-            System.err.printf("Exception in thread \"%s\" ", thread.getName());
+            System.err.print("Exception in thread \"" + thread.getName() + "\" ");
             throwable.printStackTrace(System.err);
         }
     }
