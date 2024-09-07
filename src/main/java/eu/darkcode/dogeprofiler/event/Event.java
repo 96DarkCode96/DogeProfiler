@@ -1,5 +1,6 @@
-package eu.darkcode.dogeprofiler;
+package eu.darkcode.dogeprofiler.event;
 
+import eu.darkcode.dogeprofiler.sender.serializer.SendSerialize;
 import org.jetbrains.annotations.NotNull;
 
 /**

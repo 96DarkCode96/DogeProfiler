@@ -1,6 +1,6 @@
-package eu.darkcode.dogeprofiler;
+package eu.darkcode.dogeprofiler.event.metric;
 
-import eu.darkcode.dogeprofiler.metric.Metric;
+import eu.darkcode.dogeprofiler.DogeProfiler;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 
@@ -18,7 +18,7 @@ public final class TimingInstance {
     private final long start;
     private Long timeRun;
 
-    TimingInstance(@NotNull DogeProfiler dogeProfiler, @NotNull String timingKey, long start) {
+    public TimingInstance(@NotNull DogeProfiler dogeProfiler, @NotNull String timingKey, long start) {
         this.dogeProfiler = dogeProfiler;
         this.timingKey = timingKey;
         this.start = start;

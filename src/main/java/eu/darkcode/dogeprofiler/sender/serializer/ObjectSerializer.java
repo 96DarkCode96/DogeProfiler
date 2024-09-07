@@ -1,4 +1,4 @@
-package eu.darkcode.dogeprofiler.sender;
+package eu.darkcode.dogeprofiler.sender.serializer;
 
 import java.io.IOException;
 import java.io.OutputStream;

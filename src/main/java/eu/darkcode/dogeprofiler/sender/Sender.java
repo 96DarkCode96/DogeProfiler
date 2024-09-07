@@ -1,5 +1,6 @@
 package eu.darkcode.dogeprofiler.sender;
 
+import eu.darkcode.dogeprofiler.sender.serializer.ObjectSerializer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;

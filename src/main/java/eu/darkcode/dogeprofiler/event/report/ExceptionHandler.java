@@ -1,22 +1,25 @@
-package eu.darkcode.dogeprofiler;
+package eu.darkcode.dogeprofiler.event.report;
 
-import lombok.RequiredArgsConstructor;
+import eu.darkcode.dogeprofiler.DogeProfiler;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author darkcode
  * @date 20.07.24
  **/
-@RequiredArgsConstructor
-final class ExceptionHandler implements Thread.UncaughtExceptionHandler {
+public final class ExceptionHandler implements Thread.UncaughtExceptionHandler {
 
     private final Thread.UncaughtExceptionHandler originalHandler;
-    private final List<DogeProfiler> profilers = new ArrayList<>();
+    private final Set<DogeProfiler> profilers = new HashSet<>();
 
-    static void setup(@NotNull DogeProfiler dogeProfiler) {
+    private ExceptionHandler(Thread.UncaughtExceptionHandler originalHandler) {
+        this.originalHandler = originalHandler;
+    }
+
+    public static void setup(@NotNull DogeProfiler dogeProfiler) {
         Thread.UncaughtExceptionHandler currentHandler = Thread.getDefaultUncaughtExceptionHandler();
 
         ExceptionHandler dogeProfilerHandler;
@@ -32,7 +35,7 @@ final class ExceptionHandler implements Thread.UncaughtExceptionHandler {
     @Override
     public void uncaughtException(Thread thread, Throwable throwable) {
         for (DogeProfiler dogeProfiler : profilers)
-            dogeProfiler.notify(throwable, new NotifyState(NotifyState.NotifyType.UNHANDLED_EXCEPTION, Severity.ERROR), thread);
+            dogeProfiler.notify(throwable, Report.ReportType.UNHANDLED_EXCEPTION, thread);
 
         if (originalHandler != null) {
             originalHandler.uncaughtException(thread, throwable);

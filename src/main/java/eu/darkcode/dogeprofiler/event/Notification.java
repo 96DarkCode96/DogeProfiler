@@ -1,4 +1,6 @@
-package eu.darkcode.dogeprofiler;
+package eu.darkcode.dogeprofiler.event;
+
+import eu.darkcode.dogeprofiler.sender.serializer.SendSerialize;
 
 import java.util.ArrayList;
 import java.util.List;

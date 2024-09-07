@@ -1,5 +1,7 @@
-package eu.darkcode.dogeprofiler;
+package eu.darkcode.dogeprofiler.event.report;
 
+import eu.darkcode.dogeprofiler.config.Configuration;
+import eu.darkcode.dogeprofiler.sender.serializer.SendSerialize;
 import lombok.Getter;
 import lombok.Setter;
 

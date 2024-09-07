@@ -1,6 +1,10 @@
-package eu.darkcode.dogeprofiler;
+package eu.darkcode.dogeprofiler.event.report;
 
+import eu.darkcode.dogeprofiler.DogeProfiler;
+import eu.darkcode.dogeprofiler.sender.serializer.SendSerialize;
+import eu.darkcode.dogeprofiler.event.Event;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -17,22 +21,22 @@ public class Report implements Event {
 
     private final @NotNull DogeProfiler dogeProfiler;
     private final @NotNull ExceptionWrapper exception;
-    private final @NotNull NotifyState notifyState;
+    private final @NotNull ReportType reportType;
     private final @NotNull Thread thread;
     private final @NotNull Map<String, Object> appInfo = new HashMap<>();
     private final @NotNull Map<String, Object> deviceInfo = new HashMap<>();
     private final @NotNull Map<String, Object> metaData = new HashMap<>();
 
     public Report(@NotNull DogeProfiler dogeProfiler, @NotNull Throwable exception) {
-        this(dogeProfiler, exception, new NotifyState(NotifyState.NotifyType.HANDLED_EXCEPTION, Severity.ERROR));
+        this(dogeProfiler, exception, ReportType.HANDLED_EXCEPTION);
     }
 
-    public Report(@NotNull DogeProfiler dogeProfiler, @NotNull Throwable exception, @NotNull NotifyState notifyState) {
-        this(dogeProfiler, exception, notifyState, Thread.currentThread());
+    public Report(@NotNull DogeProfiler dogeProfiler, @NotNull Throwable exception, @NotNull ReportType reportType) {
+        this(dogeProfiler, exception, reportType, Thread.currentThread());
     }
 
-    public Report(@NotNull DogeProfiler dogeProfiler, @NotNull Throwable exception, @NotNull NotifyState notifyState, @NotNull Thread thread) {
-        this(dogeProfiler, new ExceptionWrapper(dogeProfiler.getConfiguration(), exception), notifyState, thread);
+    public Report(@NotNull DogeProfiler dogeProfiler, @NotNull Throwable exception, @NotNull ReportType reportType, @NotNull Thread thread) {
+        this(dogeProfiler, new ExceptionWrapper(dogeProfiler.getConfig(), exception), reportType, thread);
     }
 
     @SendSerialize
@@ -43,8 +47,8 @@ public class Report implements Event {
 
     @SendSerialize
     @NotNull
-    public String getSeverity() {
-        return notifyState.getSeverity().getValue();
+    public String getReportType() {
+        return reportType.getName();
     }
 
     @SendSerialize
@@ -54,7 +58,7 @@ public class Report implements Event {
 
         Throwable currentThrowable = exception.getThrowable().getCause();
         while (currentThrowable != null) {
-            exceptions.add(new ExceptionWrapper(dogeProfiler.getConfiguration(), currentThrowable));
+            exceptions.add(new ExceptionWrapper(dogeProfiler.getConfig(), currentThrowable));
             currentThrowable = currentThrowable.getCause();
         }
 
@@ -91,5 +95,13 @@ public class Report implements Event {
     @Override
     public @NotNull String getEventType() {
         return "error";
+    }
+
+    @AllArgsConstructor
+    @Getter
+    public enum ReportType {
+        UNHANDLED_EXCEPTION("unhandledException"),
+        HANDLED_EXCEPTION("handledException");
+        private final String name;
     }
 }
