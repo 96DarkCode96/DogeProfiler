@@ -12,15 +12,7 @@ import java.net.Proxy;
 public interface HttpSender extends Sender {
     void setEndpoint(@NotNull String endpoint);
 
-    @NotNull
-    String getEndpoint();
-
     void setTimeout(int timeout);
-
-    int getTimeout();
-
-    @Nullable
-    Proxy getProxy();
 
     void setProxy(@Nullable Proxy proxy);
 }

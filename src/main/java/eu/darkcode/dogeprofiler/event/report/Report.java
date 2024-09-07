@@ -1,8 +1,8 @@
 package eu.darkcode.dogeprofiler.event.report;
 
 import eu.darkcode.dogeprofiler.DogeProfiler;
-import eu.darkcode.dogeprofiler.sender.serializer.SendSerialize;
 import eu.darkcode.dogeprofiler.event.Event;
+import eu.darkcode.dogeprofiler.sender.serializer.SendSerialize;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
@@ -17,6 +17,7 @@ import java.util.Map;
  * @date 20.07.24
  **/
 @AllArgsConstructor
+@SuppressWarnings("unused")
 public class Report implements Event {
 
     private final @NotNull DogeProfiler dogeProfiler;

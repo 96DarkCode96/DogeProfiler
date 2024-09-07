@@ -2,7 +2,9 @@ package eu.darkcode.dogeprofiler.config;
 
 import eu.darkcode.dogeprofiler.event.report.before.BeforeReport;
 import eu.darkcode.dogeprofiler.event.report.before.DefaultBeforeReport;
-import eu.darkcode.dogeprofiler.sender.*;
+import eu.darkcode.dogeprofiler.sender.HttpSender;
+import eu.darkcode.dogeprofiler.sender.Sender;
+import eu.darkcode.dogeprofiler.sender.SynchronousHttpSender;
 import eu.darkcode.dogeprofiler.sender.serializer.DefaultObjectSerializer;
 import eu.darkcode.dogeprofiler.sender.serializer.ObjectSerializer;
 import lombok.Getter;
@@ -22,6 +24,7 @@ import java.util.Map;
  **/
 @Getter
 @Setter
+@SuppressWarnings("unused")
 public final class Configuration {
 
     private final @NotNull String apiKey;
@@ -56,6 +59,11 @@ public final class Configuration {
     public void setEndpoint(@NotNull String endpoint) {
         if (getSender() instanceof HttpSender httpSender)
             httpSender.setEndpoint(endpoint);
+    }
+
+    public void setTimeout(int timeout) {
+        if (getSender() instanceof HttpSender httpSender)
+            httpSender.setTimeout(timeout);
     }
 
     public void setProxy(@Nullable Proxy proxy) {

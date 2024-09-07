@@ -10,6 +10,7 @@ import java.util.Objects;
  * @author darkcode
  * @date 24.08.24
  **/
+@SuppressWarnings("unused")
 public final class TimingInstance {
 
     private final @NotNull DogeProfiler dogeProfiler;

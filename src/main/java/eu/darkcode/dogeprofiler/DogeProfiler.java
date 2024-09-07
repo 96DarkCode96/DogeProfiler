@@ -17,6 +17,7 @@ import org.jetbrains.annotations.Nullable;
  * @date 02.09.2024
  **/
 @Getter
+@SuppressWarnings("unused")
 public final class DogeProfiler {
 
     private final Configuration config;

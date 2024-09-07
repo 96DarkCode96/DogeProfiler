@@ -10,6 +10,7 @@ import java.util.Set;
  * @author darkcode
  * @date 20.07.24
  **/
+@SuppressWarnings("unused")
 public final class ExceptionHandler implements Thread.UncaughtExceptionHandler {
 
     private final Thread.UncaughtExceptionHandler originalHandler;
