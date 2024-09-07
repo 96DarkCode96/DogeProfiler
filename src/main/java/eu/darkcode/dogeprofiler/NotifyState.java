@@ -28,11 +28,4 @@ public class NotifyState {
         }
     }
 
-    @Override
-    public String toString() {
-        return "NotifyState{" +
-                "notifyType=" + notifyType +
-                ", severity=" + severity +
-                '}';
-    }
 }

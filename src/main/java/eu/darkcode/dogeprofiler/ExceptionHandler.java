@@ -10,7 +10,6 @@ import java.util.List;
  * @author darkcode
  * @date 20.07.24
  **/
-
 @RequiredArgsConstructor
 final class ExceptionHandler implements Thread.UncaughtExceptionHandler {
 
