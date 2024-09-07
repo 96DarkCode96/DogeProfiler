@@ -1,12 +1,13 @@
 package eu.darkcode.dogeprofiler;
 
 import eu.darkcode.dogeprofiler.injectors.ApplicationReportInjector;
-import eu.darkcode.dogeprofiler.sender.DefaultSender;
-import eu.darkcode.dogeprofiler.sender.Sender;
+import eu.darkcode.dogeprofiler.sender.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
+import java.net.Proxy;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,9 +20,11 @@ import java.util.List;
 public class Configuration {
 
     private final String apiKey;
-    private Sender sender = new DefaultSender(this);
+    private Sender sender = new SynchronousHttpSender();
     private String appVersion;
-    private List<ReportListener> reportListenerList = new ArrayList<>();
+    private ObjectSerializer serializer = new DefaultObjectSerializer();
+    private final List<ReportListener> reportListenerList = new ArrayList<>();
+    private final List<String> projectPackages = new ArrayList<>();
 
     public Configuration(@NotNull String apiKey) {
         this.apiKey = apiKey;
@@ -32,4 +35,20 @@ public class Configuration {
         reportListenerList.add(reportListener);
     }
 
+    public boolean isProjectFile(String className) {
+        for (String projectPackage : projectPackages)
+            if (projectPackage != null && className.startsWith(projectPackage))
+                return true;
+        return false;
+    }
+
+    public void setEndpoint(@NotNull String endpoint) {
+        if (getSender() instanceof HttpSender httpSender)
+            httpSender.setEndpoint(endpoint);
+    }
+
+    public void setProxy(@Nullable Proxy proxy) {
+        if (getSender() instanceof HttpSender httpSender)
+            httpSender.setProxy(proxy);
+    }
 }

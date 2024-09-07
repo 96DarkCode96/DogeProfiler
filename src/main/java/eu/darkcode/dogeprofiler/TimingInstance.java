@@ -14,11 +14,11 @@ public final class TimingInstance {
 
     private final @NotNull DogeProfiler dogeProfiler;
     @Getter
-    private final @NotNull TimingKey timingKey;
+    private final @NotNull String timingKey;
     private final long start;
     private Long timeRun;
 
-    TimingInstance(@NotNull DogeProfiler dogeProfiler, @NotNull TimingKey timingKey, long start) {
+    TimingInstance(@NotNull DogeProfiler dogeProfiler, @NotNull String timingKey, long start) {
         this.dogeProfiler = dogeProfiler;
         this.timingKey = timingKey;
         this.start = start;
@@ -27,8 +27,7 @@ public final class TimingInstance {
     public long end() {
         if (timeRun == null) {
             timeRun = System.currentTimeMillis() - this.start;
-            if (timeRun >= this.timingKey.criticalThreshold())
-                activateThreshold();
+            activateThreshold();
         }
         return timeRun;
     }

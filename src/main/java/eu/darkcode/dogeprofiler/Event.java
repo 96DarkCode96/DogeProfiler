@@ -4,7 +4,10 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * @author darkcode
- * @date 24.08.24
+ * @date 07.09.24
  **/
-public record TimingKey(@NotNull String key, long criticalThreshold) {
+public interface Event {
+    @SendSerialize
+    @NotNull
+    String getEventType();
 }

@@ -6,6 +6,9 @@ import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.net.Proxy;
+import java.util.Map;
+
 /**
  * @author _dark_code_
  * @date 02.09.2024
@@ -32,9 +35,15 @@ public final class DogeProfiler {
     public void notify(@NotNull Report report) {
         for (ReportListener listener : configuration.getReportListenerList())
             listener.beforeNotify(report);
+        handleEvent(report);
+    }
+
+    private void handleEvent(@NotNull Event event) {
         if (configuration.getSender() == null)
             return;
-        configuration.getSender().send(report);
+        Notification object = new Notification();
+        object.getEvents().add(event);
+        configuration.getSender().send(configuration.getSerializer(), object, htmlHeaders());
     }
 
     public void setAppVersion(String appVersion) {
@@ -45,13 +54,28 @@ public final class DogeProfiler {
         this.configuration.setSender(sender);
     }
 
-    public @NotNull TimingInstance timing(@NotNull TimingKey timingKey) {
+    public @NotNull TimingInstance timing(@NotNull String timingKey) {
         return new TimingInstance(this, timingKey, System.currentTimeMillis());
     }
 
-    public void sendMetric(@NotNull Metric metric) {
-        Sender sender = configuration.getSender();
-        if (sender != null)
-            sender.send(metric);
+    void sendMetric(@NotNull Metric metric) {
+        handleEvent(metric);
+    }
+
+    @NotNull
+    private Map<String, String> htmlHeaders() {
+        return Map.of("DogeProfiler-Api-Key", configuration.getApiKey());
+    }
+
+    public void addProjectPackage(@NotNull String pkg) {
+        configuration.getProjectPackages().add(pkg);
+    }
+
+    public void setEndpoint(@NotNull String endpoint) {
+        getConfiguration().setEndpoint(endpoint);
+    }
+
+    public void setProxy(@Nullable Proxy proxy) {
+        getConfiguration().setProxy(proxy);
     }
 }
