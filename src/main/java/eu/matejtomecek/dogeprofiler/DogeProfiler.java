@@ -1,13 +1,13 @@
-package eu.darkcode.dogeprofiler;
+package eu.matejtomecek.dogeprofiler;
 
-import eu.darkcode.dogeprofiler.config.Configuration;
-import eu.darkcode.dogeprofiler.event.Event;
-import eu.darkcode.dogeprofiler.event.Notification;
-import eu.darkcode.dogeprofiler.event.metric.Metric;
-import eu.darkcode.dogeprofiler.event.metric.TimingInstance;
-import eu.darkcode.dogeprofiler.event.report.ExceptionHandler;
-import eu.darkcode.dogeprofiler.event.report.Report;
-import eu.darkcode.dogeprofiler.event.report.before.BeforeReport;
+import eu.matejtomecek.dogeprofiler.config.Configuration;
+import eu.matejtomecek.dogeprofiler.event.Event;
+import eu.matejtomecek.dogeprofiler.event.Notification;
+import eu.matejtomecek.dogeprofiler.event.metric.Metric;
+import eu.matejtomecek.dogeprofiler.event.metric.TimingInstance;
+import eu.matejtomecek.dogeprofiler.event.report.ExceptionHandler;
+import eu.matejtomecek.dogeprofiler.event.report.Report;
+import eu.matejtomecek.dogeprofiler.event.report.before.BeforeReport;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

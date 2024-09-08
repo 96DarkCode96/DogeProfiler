@@ -29,7 +29,7 @@ public static void main(String[] args) {
 You can manually report the error using this snippet:
 
 ```java
-import eu.darkcode.dogeprofiler.DogeProfiler;
+import eu.matejtomecek.dogeprofiler.DogeProfiler;
 
 private static final DogeProfiler dogeProfiler = ...;
 

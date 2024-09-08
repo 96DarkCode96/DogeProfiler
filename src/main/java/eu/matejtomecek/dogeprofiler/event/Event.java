@@ -1,7 +1,7 @@
-package eu.darkcode.dogeprofiler.event;
+package eu.matejtomecek.dogeprofiler.event;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import eu.darkcode.dogeprofiler.sender.serializer.SendSerialize;
+import eu.matejtomecek.dogeprofiler.sender.serializer.SendSerialize;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Calendar;

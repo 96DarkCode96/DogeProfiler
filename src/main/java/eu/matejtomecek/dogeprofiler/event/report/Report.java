@@ -1,8 +1,8 @@
-package eu.darkcode.dogeprofiler.event.report;
+package eu.matejtomecek.dogeprofiler.event.report;
 
-import eu.darkcode.dogeprofiler.DogeProfiler;
-import eu.darkcode.dogeprofiler.event.Event;
-import eu.darkcode.dogeprofiler.sender.serializer.SendSerialize;
+import eu.matejtomecek.dogeprofiler.DogeProfiler;
+import eu.matejtomecek.dogeprofiler.event.Event;
+import eu.matejtomecek.dogeprofiler.sender.serializer.SendSerialize;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;

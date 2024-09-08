@@ -1,12 +1,12 @@
-package eu.darkcode.dogeprofiler.config;
+package eu.matejtomecek.dogeprofiler.config;
 
-import eu.darkcode.dogeprofiler.event.report.before.BeforeReport;
-import eu.darkcode.dogeprofiler.event.report.before.DefaultBeforeReport;
-import eu.darkcode.dogeprofiler.sender.HttpSender;
-import eu.darkcode.dogeprofiler.sender.Sender;
-import eu.darkcode.dogeprofiler.sender.SynchronousHttpSender;
-import eu.darkcode.dogeprofiler.sender.serializer.DefaultObjectSerializer;
-import eu.darkcode.dogeprofiler.sender.serializer.ObjectSerializer;
+import eu.matejtomecek.dogeprofiler.event.report.before.BeforeReport;
+import eu.matejtomecek.dogeprofiler.event.report.before.DefaultBeforeReport;
+import eu.matejtomecek.dogeprofiler.sender.HttpSender;
+import eu.matejtomecek.dogeprofiler.sender.Sender;
+import eu.matejtomecek.dogeprofiler.sender.SynchronousHttpSender;
+import eu.matejtomecek.dogeprofiler.sender.serializer.DefaultObjectSerializer;
+import eu.matejtomecek.dogeprofiler.sender.serializer.ObjectSerializer;
 import lombok.Getter;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;

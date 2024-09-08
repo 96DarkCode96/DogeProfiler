@@ -1,7 +1,7 @@
-package eu.darkcode.dogeprofiler.event.metric;
+package eu.matejtomecek.dogeprofiler.event.metric;
 
-import eu.darkcode.dogeprofiler.event.Event;
-import eu.darkcode.dogeprofiler.sender.serializer.SendSerialize;
+import eu.matejtomecek.dogeprofiler.event.Event;
+import eu.matejtomecek.dogeprofiler.sender.serializer.SendSerialize;
 import org.jetbrains.annotations.NotNull;
 
 /**

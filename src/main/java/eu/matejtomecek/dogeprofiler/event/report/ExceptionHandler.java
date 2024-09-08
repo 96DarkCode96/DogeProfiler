@@ -1,6 +1,6 @@
-package eu.darkcode.dogeprofiler.event.report;
+package eu.matejtomecek.dogeprofiler.event.report;
 
-import eu.darkcode.dogeprofiler.DogeProfiler;
+import eu.matejtomecek.dogeprofiler.DogeProfiler;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;

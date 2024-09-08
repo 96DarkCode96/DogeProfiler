@@ -1,4 +1,4 @@
-package eu.darkcode.dogeprofiler.sender.serializer;
+package eu.matejtomecek.dogeprofiler.sender.serializer;
 
 import com.fasterxml.jackson.annotation.JacksonAnnotationsInside;
 import com.fasterxml.jackson.annotation.JsonProperty;

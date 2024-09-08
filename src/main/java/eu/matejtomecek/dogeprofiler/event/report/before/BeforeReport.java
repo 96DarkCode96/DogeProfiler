@@ -1,6 +1,6 @@
-package eu.darkcode.dogeprofiler.event.report.before;
+package eu.matejtomecek.dogeprofiler.event.report.before;
 
-import eu.darkcode.dogeprofiler.event.report.Report;
+import eu.matejtomecek.dogeprofiler.event.report.Report;
 import org.jetbrains.annotations.NotNull;
 
 /**

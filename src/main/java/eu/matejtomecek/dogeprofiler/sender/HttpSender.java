@@ -1,4 +1,4 @@
-package eu.darkcode.dogeprofiler.sender;
+package eu.matejtomecek.dogeprofiler.sender;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

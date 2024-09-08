@@ -1,6 +1,6 @@
-package eu.darkcode.dogeprofiler.event.metric;
+package eu.matejtomecek.dogeprofiler.event.metric;
 
-import eu.darkcode.dogeprofiler.DogeProfiler;
+import eu.matejtomecek.dogeprofiler.DogeProfiler;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 

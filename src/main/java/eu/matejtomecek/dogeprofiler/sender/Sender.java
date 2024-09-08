@@ -1,6 +1,6 @@
-package eu.darkcode.dogeprofiler.sender;
+package eu.matejtomecek.dogeprofiler.sender;
 
-import eu.darkcode.dogeprofiler.sender.serializer.ObjectSerializer;
+import eu.matejtomecek.dogeprofiler.sender.serializer.ObjectSerializer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;

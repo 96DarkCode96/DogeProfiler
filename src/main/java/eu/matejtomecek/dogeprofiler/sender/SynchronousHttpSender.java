@@ -1,6 +1,6 @@
-package eu.darkcode.dogeprofiler.sender;
+package eu.matejtomecek.dogeprofiler.sender;
 
-import eu.darkcode.dogeprofiler.sender.serializer.ObjectSerializer;
+import eu.matejtomecek.dogeprofiler.sender.serializer.ObjectSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
