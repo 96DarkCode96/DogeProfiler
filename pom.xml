@@ -32,12 +32,9 @@
     <distributionManagement>
         <repository>
             <id>github</id>
+            <name>GitHub Packages</name>
             <url>https://maven.pkg.github.com/96DarkCode96/DogeProfiler</url>
         </repository>
-        <snapshotRepository>
-            <id>github-snapshots</id>
-            <url>https://maven.pkg.github.com/96DarkCode96/DogeProfiler</url>
-        </snapshotRepository>
     </distributionManagement>
 
     <dependencies>
