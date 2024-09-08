@@ -40,6 +40,11 @@ public static void someMethod() {
         ...
     } catch (Exception exception) {
         dogeProfiler.notify(exception);
+        // or
+        dogeProfiler.notify(exception, report -> {
+            // here you can edit report (add metadata etc...)
+            report.addMetaData("test", true);
+        });
     }
 }
 ```
