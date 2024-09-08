@@ -2,6 +2,7 @@ package eu.matejtomecek.dogeprofiler.config;
 
 import eu.matejtomecek.dogeprofiler.event.report.before.BeforeReport;
 import eu.matejtomecek.dogeprofiler.event.report.before.DefaultBeforeReport;
+import eu.matejtomecek.dogeprofiler.sender.AsyncSynchronousHttpSender;
 import eu.matejtomecek.dogeprofiler.sender.HttpSender;
 import eu.matejtomecek.dogeprofiler.sender.Sender;
 import eu.matejtomecek.dogeprofiler.sender.SynchronousHttpSender;
@@ -31,7 +32,7 @@ public final class Configuration {
     private @Nullable String appVersion;
 
     private @NotNull ObjectSerializer serializer = new DefaultObjectSerializer();
-    private @NotNull Sender sender = new SynchronousHttpSender();
+    private @NotNull Sender sender = new AsyncSynchronousHttpSender();
 
     private final @NotNull List<@NotNull String> projectPackages = new ArrayList<>();
     private final @NotNull List<@NotNull BeforeReport> reportListenerList = new ArrayList<>();
