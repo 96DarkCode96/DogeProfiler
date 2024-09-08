@@ -32,16 +32,16 @@ public final class DogeProfiler {
         handleReport(new Report(this, throwable));
     }
 
-    public void notify(@NotNull Throwable throwable, @Nullable BeforeReport beforeReport) {
-        handleReport(new Report(this, throwable), beforeReport);
+    public void notify(@NotNull Throwable throwable, @NotNull BeforeReport... beforeReports) {
+        handleReport(new Report(this, throwable), beforeReports);
     }
 
     public void notify(@NotNull Throwable throwable, @NotNull Report.ReportType reportType, @NotNull Thread thread) {
         handleReport(new Report(this, throwable, reportType, thread));
     }
 
-    public void notify(@NotNull Throwable throwable, @NotNull Report.ReportType reportType, @NotNull Thread thread, @Nullable BeforeReport beforeReport) {
-        handleReport(new Report(this, throwable, reportType, thread), beforeReport);
+    public void notify(@NotNull Throwable throwable, @NotNull Report.ReportType reportType, @NotNull Thread thread, @NotNull BeforeReport... beforeReports) {
+        handleReport(new Report(this, throwable, reportType, thread), beforeReports);
     }
 
     public @NotNull TimingInstance timing(@NotNull String timingKey) {
@@ -52,15 +52,10 @@ public final class DogeProfiler {
         handleEvent(metric);
     }
 
-
-    private void handleReport(@NotNull Report report) {
-        handleReport(report, null);
-    }
-
-    private void handleReport(@NotNull Report report, @Nullable BeforeReport beforeReport) {
+    private void handleReport(@NotNull Report report, @NotNull BeforeReport... beforeReports) {
         for (BeforeReport listener : getConfig().getReportListenerList())
             listener.beforeNotify(report);
-        if (beforeReport != null)
+        for (BeforeReport beforeReport : beforeReports)
             beforeReport.beforeNotify(report);
         handleEvent(report);
     }
