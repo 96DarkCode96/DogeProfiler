@@ -45,7 +45,7 @@ public final class DogeProfiler {
     }
 
     public @NotNull TimingInstance timing(@NotNull String timingKey) {
-        return new TimingInstance(this, timingKey, System.currentTimeMillis());
+        return new TimingInstance(this, timingKey);
     }
 
     public void sendMetric(@NotNull Metric metric) {

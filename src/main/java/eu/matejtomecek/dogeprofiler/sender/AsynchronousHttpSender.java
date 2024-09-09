@@ -21,13 +21,13 @@ import java.util.concurrent.TimeUnit;
  **/
 @Setter
 @Getter
-public class AsyncSynchronousHttpSender implements HttpSender {
-    private static final Logger LOGGER = LoggerFactory.getLogger(AsyncSynchronousHttpSender.class);
+public class AsynchronousHttpSender implements HttpSender {
+    private static final Logger LOGGER = LoggerFactory.getLogger(AsynchronousHttpSender.class);
 
     private final @NotNull ExecutorService executorService = new ThreadPoolExecutor(0, 1, 5, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
     private @NotNull HttpSender baseSender = new SynchronousHttpSender();
 
-    public AsyncSynchronousHttpSender() {
+    public AsynchronousHttpSender() {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             terminated = true;
             executorService.shutdown();
